@@ -1,0 +1,6 @@
+vendor
+app/config.php
+# ignore all sql
+*.sql
+# ignore all jpg
+*.jpg
