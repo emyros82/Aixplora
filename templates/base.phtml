@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<title>AIXPLORA</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="public/css/main.css" />
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+	<link rel="stylesheet" href="public/css/style.css">
+	<link rel="shortcut icon" type="image/png" href="public/img/favicon.png"/>
+
+	<noscript>
+		<link rel="stylesheet" href="public/css/noscript.css" />
+	</noscript>
+	<script src="public/js/map2.js" defer></script>
+</head>
+
+<body class="landing is-preload">
+
+<style>
+	img#logoTexteAixplora{
+		height: 30px;
+		margin-top: 12px;
+		margin-left: 8px;
+	}
+</style>
+
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			
+		<a href="<?= buildUrl('home'); ?>"> <img id="logoTexteAixplora" src="public/img/logos/logoAixplora.png" alt="premier logo du site Aixplora"> </a>
+
+			<!-- **************************
+						menu navbar 
+							************************-->
+			<nav id="nav">
+				<ul>
+					<li class="special">
+						<a href="#menu" class="menuToggle"><span>Menu</span></a>
+						<div id="menu">
+							<ul>
+								<li><a href="<?= buildUrl('home'); ?>">Home</a></li>
+
+								<?php if (Session::isConnected()) : ?>
+									<li><a href="<?= buildUrl('profileUser'); ?>">Votre profil <?= (Session::getUserFirstname()); ?> <?= (Session::getUserLastname()); ?></a></li>
+									<li><a href="<?= buildUrl('logout'); ?>">Se deconnecter</a></li>
+								<?php else : ?>
+									<li><a href="<?= buildUrl('signup'); ?>">Créer un compte</a></li>
+									<li><a href="<?= buildUrl('login'); ?>">Se connecter</a></li>
+								<?php endif; ?>
+
+								<li><a href="<?= buildUrl('admin'); ?>">BackOffice Administrateur</a></li>
+
+								<li><a href="<?= buildUrl('map'); ?>">Carte interactive</a></li>
+								<!-- <li><a href="elements.html">Elements</a></li> -->
+								<img class='logo' src="public/img/logos/logoCezanne_blue.png" alt="premier logo du site Aixplora raffigurant la statue de Paul Cezanne">
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+			<!-- end menu navbar -->
+		</header>
+		<!-- end Header -->
+
+
+
+
+
+		<main>
+			<?php include '../templates/' . $template . '.phtml'; ?>
+		</main>
+
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<header>
+					<h2>Aixplora</h2>
+					<p>A la découverte de notre passé, notre présent et notre futur...</p>
+				</header>
+				<ul class="actions stacked">
+					<li><a href="#" class="button fit primary">Aixplorer</a></li>
+				</ul>
+			</div>
+			<ul class="icons">
+				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Emanuela Rossetti 2022</li>
+				<li>Design: <a href="#">E2R</a></li>
+			</ul>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="public/js/jquery.min.js"></script>
+	<script src="public/js/jquery.scrollex.min.js"></script>
+	<script src="public/js/jquery.scrolly.min.js"></script>
+	<script src="public/js/browser.min.js"></script>
+	<script src="public/js/breakpoints.min.js"></script>
+	<script src="public/js/util.js"></script>
+	<script src="public/js/main.js"></script>
+	<script src="public/js/formulaire.js"></script>
+
+</body>
+
+</html>
