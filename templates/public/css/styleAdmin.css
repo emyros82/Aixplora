@@ -1,0 +1,18 @@
+.infobulle:hover::after {
+    content: attr(title);
+    /* on affiche title */
+    position: absolute;
+    top: -2.4em;
+    left: 50%;
+    transform: translateX(-50%);
+    /* on centre horizontalement  */
+    z-index: 1;
+    /* pour s'afficher au dessus des éléments en position relative */
+    white-space: nowrap;
+    /* on interdit le retour à la ligne*/
+    padding: 5px 14px;
+    background: #413219;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 1.2rem;
+}

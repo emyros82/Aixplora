@@ -1,0 +1,454 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/************************************************************************************************************************************************************
+                              FORM SIGNUP  FORM LOGIN  FORM ADDPLACE
+*************************************************************************************************************************************************************/
+
+body {
+    font-family: Roboto, sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div.logoForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+img#logoCez {
+    height: 150px;
+}
+
+
+header {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    /* vertical-align: baseline; */
+
+}
+
+.screen-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-image: url('http://www.bloglagruyere.ch/wp-content/uploads/2013/08/saintevictoirea.jpg'); */
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* Make the form responsive */
+@media (min-width: 480px) {
+    .screen-container {
+        margin-top: -60px;
+    }
+}
+
+section .connexion {
+    font-family: 'Roboto', sans-serif;
+}
+
+form {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f7f3f3ab;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+form #addForm {
+    width: 400px;
+}
+
+form h3 {
+    color: #172b69;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 3px;
+
+}
+
+label {
+    font-size: 15px;
+    color: #878787;
+}
+
+form p.signUp {
+    font-size: 15px;
+    margin-bottom: 21px;
+    color: #172b69;
+    text-align: center;
+
+}
+
+form .inputs {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+
+form .inputs input[type='text'],
+input[type='password'], input[type='date'], input[type='email'] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f4eded;
+    margin-bottom: 15px;
+    box-shadow: 1px 2px 2px #172c69c5;
+}
+
+textarea#abstractPlace, #descriptionPlace {
+    margin-bottom: 4px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f4eded;
+    margin-bottom: 15px;
+}
+
+@media (min-width: 480px) {
+
+    form h3 {
+        font-size: 25px;
+    }
+}
+
+@media (min-width: 700px) {
+
+    form h3 {
+        font-size: 40px;
+    }
+
+    form p.signUp {
+        font-size: 20px;
+    }
+}
+
+
+div .formGridAddPlace {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+}
+
+select {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f4eded;
+    margin-bottom: 4 pxpx;
+    margin-left: 5px;;
+}
+
+#select1 {
+    grid-area: 1 / 1 / 2 / 3;
+
+}
+
+#select2 {
+    grid-area: 1 / 3 / 2 / 5;
+}
+
+
+div .formGridAddCategory {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+#select3 {
+    grid-area: 1 / 1 / 2 / 4;
+
+}
+
+#select4 {
+    grid-area: 2 / 1 / 3 / 4;
+}
+
+#select1:focus, #select2:focus {
+    outline: none;
+    border: rgb(250, 155, 3) 2px solid;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fafafa;
+}
+
+
+form .inputs input[type='text']:focus, form .inputs input[type='password']:focus, form .inputs input[type='date']:focus, form .inputs input[type='email']:focus {
+    outline: none;
+    border: rgb(250, 155, 3) 2px solid;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fafafa;
+}
+
+
+textarea#abstractPlace:focus, #descriptionPlace:focus {
+    outline: none;
+    border: rgb(250, 155, 3) 2px solid;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fafafa;
+}
+
+
+form p.signUp span {
+    color: #9a1706;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    color: #fff;
+    background-color: #f1b424;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 3px;
+    margin-top: 10px;
+}
+
+form #buttonAddPlaceForm {
+    margin-top: 2px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+/* Make the form responsive */
+@media (min-width: 480px) {
+    form #buttonAddPlaceForm {
+        margin-top: -252px;
+        margin-bottom: 20px;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+}
+
+
+form .formbutton {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+/* Make the form responsive */
+@media (min-width: 332px) {
+    /*form {*/
+    /*    width: 40%;*/
+    /*}*/
+
+    #addForm {
+        width: 60%;
+    }
+
+    #select3 {
+        grid-area: 1 / 1 / 2 / 3;
+
+    }
+
+    #select4 {
+        grid-area: 1 / 3 / 2 / 5;
+    }
+}
+
+/*******************************************OEIL SIGN IN ET LOGIN*********************/
+
+.eyeOpen,
+.eyeClose {
+    /* mise en forme des icônes */
+    cursor: pointer;
+    /* affiche le curseur "main" lorsque l'utilisateur passe sur l'icône */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5px;
+}
+
+form#formLogin {
+    height: 350px;
+}
+
+/*********************************************************************
+
+                               TABLE CRUD ADMIN 
+
+**********************************************************************/
+@import 'https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/yeti/bootstrap.min.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css';
+
+.table-sortable th:not([data-sortable="false"]) {
+    cursor: pointer;
+}
+
+.table-sortable th:not([data-sortable="false"])::after {
+    content: " " attr(data-sort-direction);
+    font-weight: normal;
+}
+
+.table-sortable th[data-sortable="false"] {
+    background-color: lightcoral;
+}
+
+.container {
+    display: flex;
+}
+
+
+p.error {
+    color: rgb(253, 4, 4);
+    margin-top: -17px;
+    font-weight: bolder;
+    font-size: 10px;
+    background-color: #f2eeeee1;
+    text-align: center;
+    border: 1px dotted red;
+}
+
+p.errorMdp {
+    margin-top: 1px;
+}
+
+/* background aleatoire */
+
+/* background-image:url('
+<?php
+$bckImg=array('http://www.ma-douce.fr/wp-content/themes/madouce/background/image_1.png','http://www.ma-douce.fr/wp-content/themes/madouce/background/image_2.png','http://www.ma-douce.fr/wp-content/themes/madouce/background/image_3.png','http://www.ma-douce.fr/wp-content/themes/madouce/background/image_4.png','http://www.ma-douce.fr/wp-content/themes/madouce/background/image_5.png','image6.jpg');
+echo array_rand($bckImg);
+?>'); */
+
+/* https://css-actif.forumactif.org/t7144-background-aleatoire */
+
+/* https://blogmotion.fr/programmation/javascript-css/fond-aleatoire-5020 */
+
+/* https://blog.emandarine.net/wordpress/background-image-random-parmi-une-liste/ */
+
+/*PROFIL PAGE*/
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    margin: 20px;
+    padding: 20px;
+    min-height: 65vh;
+}
+
+.profile-image {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border: 8px solid #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-name {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333333;
+    margin: 20px 0 10px;
+}
+
+.profile-bio {
+    font-size: 1.2em;
+    line-height: 1.5;
+    text-align: center;
+    color: #666666;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.profile-stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.profile-stat {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profile-stat-value {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333333;
+    margin: 0 0 10px;
+}
+
+.profile-stat-label {
+    font-size: 1em;
+    color: #666666;
+    text-transform: uppercase;
+}
+
+
+/* Add style for the basket button */
+.favourite-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: #172B69;
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 20px 0;
+}
+
+
+#favouriteIcon {
+    height: 35px;
+    height: 35px;
+}
+
+#favouriteIcon:hover::after {
+    content: attr(title);
+    position: absolute;
+    background-color: blue;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    top: 0;
+    left: 110%;
+}
+
+/* .infobulle:hover::after{
+    content: attr(title);
+    position: absolute;
+    top: -2.4em;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 1;
+    white-space: nowrap;
+    padding: px 14px;
+    background-color: #E8A93F;
+    color: #172B69;
+    border-radius: 4px;
+    font-size: 1.2rem;
+} */

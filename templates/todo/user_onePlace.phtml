@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../public/css/accordion.css">
+</head>
+
+<body>
+  <!-- START ACCORDION HTML -->
+
+  <div class="place-grid">
+    <div>
+      <h1><?= $place['titlePlace']; ?></h1>
+    </div>
+    <div class="container">
+
+      <div class="place-item ">
+        <a class="place-title" href="#custom">Notice succincte</a>
+        <div class="place-content">
+          <div class="place-content-inside">
+
+
+            <p class="pAccordion"><?= $place['abstractPlace']; ?></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="place-item ">
+        <a class="place-title" href="#custom"> Historique et description </a>
+        <div class="place-content">
+          <div class="place-content-inside">
+            <p class="pAccordion"><?= $place['descriptionPlace']; ?></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="place-item ">
+        <a class="place-title" href="#custom">Coordonnées</a>
+        <div class="place-content">
+          <div class="place-content-inside">
+            <p class="pAccordion">Adresse: <?= $place['adressPlace']; ?></p>
+            <p class="pAccordion">Latitude: <?= $place['latPlace']; ?></p>
+            <p class="pAccordion">Longitude: <?= $place['longPlace']; ?></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="place-item ">
+        <a class="place-title" href="#custom">Images</a>
+        <div class="place-content">
+          <div class="place-content-inside">
+
+
+            <!-- HTML structure for the gallery -->
+            <div class="gallery">
+              <figure>
+                <img src="image1.jpg" alt="Image 1">
+                <figcaption>Caption for image 1</figcaption>
+              </figure>
+              <figure>
+                <img src="image2.jpg" alt="Image 2">
+                <figcaption>Caption for image 2</figcaption>
+              </figure>
+              <!-- Add more images here -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="place-item ">
+        <a class="place-title" href="#custom">En savoir plus</a>
+        <div class="place-content">
+          <div class="place-content-inside">
+            <p class="pAccordion">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mollis cursus malesuada. Proin aliquam dignissim nunc, ac hendrerit odio vestibulum nec. In semper id nulla ac vehicula. Suspendisse faucibus, libero sit amet aliquet auctor, orci dui euismod quam, vehicula elementum odio ligula eget turpis. Aliquam commodo condimentum magna at dapibus.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END ACCORDION HTML -->
+  <script src="../../public/js/accordion_map.js"></script>
+</body>
+
+</html>

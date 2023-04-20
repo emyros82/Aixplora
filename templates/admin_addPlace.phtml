@@ -1,0 +1,118 @@
+<link rel="stylesheet" href="public/css/thumbnails.css ">
+
+  <section id="connexion">
+    <div class="screen-container">
+
+      <form id="addForm" method="POST" action="<?= buildUrl('admin_addPlace'); ?>" enctype="multipart/form-data">
+
+        <h3>Créer un lieu de visite</h3>
+
+        <div class="inputs">
+          <!-- champ NOM LIEU -->
+          <label for="titlePlace"></label>
+          <input type="text" id="titlePlace" name="titlePlace" placeholder="Nom du lieu" />
+          <!-- gestion erreur titlePlace -->
+          <?php if (isset($errors['titlePlace'])) : ?>
+            <p class="error"><?= htmlspecialchars($errors['titlePlace']); ?></p>
+          <?php endif; ?>
+
+          <!-- champ ADRESSE LIEU -->
+          <label for="adressPlace"></label>
+          <input type="text" id="adressPlace" name="adressPlace" placeholder="Adresse postale" />
+          <!-- gestion erreur adressPlace -->
+          <?php if (isset($errors['adressPlace'])) : ?>
+            <p class="error"><?= htmlspecialchars($errors['adressPlace']); ?></p>
+          <?php endif; ?>
+
+
+          <!-- champ RESUME LIEU -->
+          <label for="abstractPlace"></label>
+          <textarea id="abstractPlace" name="abstractPlace" placeholder="Résumé" style="height: 5em; overflow: visible;"></textarea>
+          <!-- gestion erreur abstractPlace -->
+          <?php if (isset($errors['abstractPlace'])) : ?>
+            <p class="error"><?= htmlspecialchars($errors['abstractPlace']); ?></p>
+          <?php endif; ?>
+
+          <!-- champ DESCRIPTION LIEU -->
+          <label for="descriptionPlace"></label>
+          <textarea id="descriptionPlace" name="descriptionPlace" placeholder="Description" style="height: 5em; overflow: visible;"></textarea>
+          <!-- gestion erreur descriptionPlace -->
+          <?php if (isset($errors['descriptionPlace'])) : ?>
+            <p class="error"><?= htmlspecialchars($errors['descriptionPlace']); ?></p>
+          <?php endif; ?>
+
+          <!-- champ LONGITUDE LIEU -->
+          <label for="longPlace"></label>
+          <input type="text" id="longPlace" name="longPlace" placeholder="Longitude" />
+          <!-- gestion erreur longPlace -->
+          <?php if (isset($errors['longPlace'])) : ?>
+            <p class="error"><?= htmlspecialchars($errors['longPlace']); ?></p>
+          <?php endif; ?>
+
+          <!-- champ LATITUDE LIEU -->
+          <label for="latPlace"></label>
+          <input type="text" id="latPlace" name="latPlace" placeholder="Latitude" />
+          <!-- gestion erreur latPlace -->
+          <?php if (isset($errors['latPlace'])) : ?>
+            <p class="error"><?= htmlspecialchars($errors['latPlace']); ?></p>
+          <?php endif; ?>
+
+          <!-- champ ACTIFPLACE -->
+          <div>
+            <label for="actifPlace"></label>
+            <select id="select1" id="actifPlace" name="actifPlace" class="form-control selectpicker">
+              <option>Visible?</option>
+              <option value="1">Oui</option>
+              <option value="0">Non</option>
+              <!-- gestion erreur Visible -->
+              <?php if (isset($errors['actifPlace'])) : ?>
+                <p class="error"><?= htmlspecialchars($errors['actifPlace']); ?></p>
+              <?php endif; ?>
+            </select>
+          </div>
+          <!-- champ ID PARCOURS ASSOCIE -->
+        </div>
+
+        <fieldset class="catChooses">
+          <legend>Selectionner la/les categorie(s) associée(s):</legend>
+
+          <div>
+            <?php foreach ($categories as $category) : ?>
+            <input type="checkbox" id="category" name="category[]" value="<?= $category['idCategory']; ?>">
+            <label for="category"><?= $category['titleCategory']; ?></label>
+            <?php endforeach; ?>
+          </div>
+        </fieldset>
+
+        <!-- champ IMAGEPLACE -->
+        <label for="image-input4">Image du lieu de visite</label>
+        <input class="imgChoice" type="file" id="image-input4" name="imagePlace">
+        <!-- gestion erreurs IMGCATEGORY-->
+        <?php if (isset($errors['imagePlace'])) : ?>
+          <p class="error"><?= htmlspecialchars($errors['imagePlace']) ?></p>
+        <?php endif; ?>
+
+        <div class='miniaturesFiles'>
+          <div><img src="#" alt="" id="image-input4-preview" width="200"></div>
+        </div>
+        <div>
+          <input id="buttonAddPlaceForm" type="submit" value="Enregistrer">
+        </div>
+      </form>
+    </div>
+
+  </section>
+
+  <!-- ***************************    START  BUTTON PLACE **************************-->
+<div style='text-align: center; margin-bottom: 10px; margin-top: 10px'>
+        <button class="btnPlus" style="background-color:#e8a93f">
+            <a style="text-decoration:none" href=" <?= buildUrl('admin_places'); ?>" class="infobulle" title="Allez au dashbord Parcours">
+                LIEUX
+            </a>
+        </button>
+    </div>
+
+    <!-- ***************************     END  BUTTON PLACE  **************************-->
+
+
+

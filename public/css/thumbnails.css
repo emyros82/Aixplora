@@ -1,0 +1,22 @@
+img {
+    width: 250px;
+}
+
+.miniaturesFiles {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    overflow: hidden;
+}
+
+.imgChoice {
+    margin-bottom: 10px;
+}
+
+.catChooses{
+    margin-bottom: 0.5em;
+}

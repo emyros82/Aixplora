@@ -1,0 +1,36 @@
+<section id="connexion">
+    <div class="screen-container">
+
+        <form id='formLogin' action="<?= buildUrl('login') ?>" method="POST">
+
+            <h3>Se connecter</h3>
+
+
+            <p class="signUp">Je n'ai pas de <span>compte</span>. Je m'en <span>crée</span> un <a href="<?= buildUrl('signup'); ?>">ici</a> </p>
+
+            <!-- On gère et on affiches les erreurs au cas où -->
+            <?php if (isset($error)) : ?>
+                <p class="error"><?= htmlspecialchars($error) ?></p>
+            <?php endif; ?>
+
+            <div class="inputs">
+                <!-- CHAMP ADRESSE MAIL-->
+                <label for="emailUser"></label>
+                <input type="email" id="emailUser" name="emailUser" placeholder="email" />
+                <!-- CHAMP MDP-->
+                <div class="show_PasswordUser" style="position:relative">
+                    <label for="password"></label>
+                    <input type="password" id="passwordUser" name="passwordUser" placeholder="Mot de passe" style="width:100%; margin:0">
+                    <div class="password-icon">
+                        <i id="show" style="position:absolute; top:50%; transform: translateY(-50%); right: 5px; cursor: pointer;" class="far fa-eye eyeIcon eyeOpen"></i>
+                        <i id="hide" style="position:absolute; top:50%; transform: translateY(-50%); right: 5px; cursor: pointer;" class="far fa-eye-slash eyeIcon eyeClose"></i>
+                    </div>
+                </div>
+            </div>
+            <div div="center" style="text-align:center">
+                <input class="button formbutton" type="submit" value="Se connecter">
+            </div>
+        </form>
+
+    </div>
+</section>

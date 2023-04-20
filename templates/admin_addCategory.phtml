@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="public/css/thumbnails.css ">
+
+<section id="connexion" style="margin-top: 25px;">
+    <div class="screen-container">
+
+        <form action="<?= buildUrl('admin_addCategory') ?>" method="POST" enctype="multipart/form-data">
+
+            <h3>Créer un parcours Aixplora</h3>
+
+            <div class="inputs">
+                <!-- CHAMP TITLECATEGORY -->
+                <label for="titleCategory">Nom du parcours</label>
+                <input type="text" id="titleCategory" name="titleCategory" placeholder="Les incontournables" />
+                <!-- gestion erreurs champ TITLECATEGORY -->
+                <?php if (isset($errors['titleCategory'])) : ?>
+                    <p class="error"><?= htmlspecialchars($errors['titleCategory']) ?></p>
+                <?php endif; ?>
+
+                <!-- champ DESCRIPTIONCATEGORY -->
+                <label for="descriptionCategory">Description du parcours</label>
+                <textarea id="descriptionCategory" name="descriptionCategory" placeholder="Dans ce parcours, nous avons sélectionné... " style="height: 5em; overflow: visible;">
+                    </textarea>
+                <!-- gestion erreur DESCRIPTIONCATEGORY -->
+                <?php if (isset($errors['descriptionCategory'])) : ?>
+                    <p class="error"><?= htmlspecialchars($errors['descriptionCategory']); ?></p>
+                <?php endif; ?>
+
+                <!-- champ ACTIFCATEGORY= state -->
+                <div>
+                    <label for="actifCategory"></label>
+                    <select id="select1" id="actifCategory" name="actifCategory" class="form-control selectpicker">
+                        <option>Visible?</option>
+                        <option value="1">Oui</option>
+                        <option value="0">Non</option>
+                        <!-- gestion erreur Visible -->
+                        <?php if (isset($errors['actifCategory'])) : ?>
+                            <p class="error"><?= htmlspecialchars($errors['actifCategory']); ?></p>
+                        <?php endif; ?>
+                    </select>
+                </div>
+
+                <!-- CHAMP IMGCATEGORY-->
+                <label for="image-input1">Image du parcours</label>
+                <input type="file" id="image-input1" name="imgCategory" accept="image/*" multiple>
+                <!-- gestion erreurs IMGCATEGORY-->
+                <?php if (isset($errors['imgCategory'])) : ?>
+                    <p class="error"><?= htmlspecialchars($errors['imgCategory']) ?></p>
+                <?php endif; ?>
+
+
+                <!-- CHAMP MARKERCATEGORY-->
+                <label for="image-input2">Marqueur du parcours</label>
+                <input type="file" id="image-input2" name="markerCategory" accept="image/*" multiple>
+                <!-- gestion erreurs IMGCATEGORY-->
+                <?php if (isset($errors['markerCategory'])) : ?>
+                    <p class="error"><?= htmlspecialchars($errors['markerCategory']) ?></p>
+                <?php endif; ?>
+
+                <!-- CHAMP ICONECATEGORY-->
+                <label for="image-input3">Icone du parcours</label>
+                <input type="file" id="image-input3" name="iconeCategory" accept="image/*" multiple>
+                <!-- gestion erreurs IMGCATEGORY-->
+                <?php if (isset($errors['iconeCategory'])) : ?>
+                    <p class="error"><?= htmlspecialchars($errors['iconeCategory']) ?></p>
+                <?php endif; ?>
+
+                <div class='miniaturesFiles'>
+                    <div><img src="#" alt="" id="image-input1-preview" width="200"></div>
+                    <div><img src="#" alt="" id="image-input2-preview" width="50"></div>
+                    <div><img src="#" alt="" id="image-input3-preview" width="50"></div>
+                </div>
+
+                <div>
+                    <input class="button" type="submit" value="Enregistrer">
+                </div>
+
+        </form>
+
+    </div>
+
+</section>
+<!-- ***************************    START  BUTTON CATEGORIES **************************-->
+<div style='text-align: center; margin-bottom: 10px'>
+        <button class="btnPlus" style="background-color:#e8a93f">
+            <a style="text-decoration:none" href=" <?= buildUrl('admin_categories'); ?>" class="infobulle" title="Allez au dashbord Parcours">
+                PARCOURS
+            </a>
+        </button>
+    </div>
+
+    <!-- ***************************     END  BUTTON CATEGORIES  **************************-->

@@ -1,0 +1,81 @@
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    margin: 20px;
+    padding: 20px;
+  min-height: 75vh;
+  }
+  .profile-image {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border: 8px solid #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .profile-name {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333333;
+    margin: 20px 0 10px;
+  }
+  .profile-bio {
+    font-size: 1.2em;
+    line-height: 1.5;
+    text-align: center;
+    color: #666666;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .profile-stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+  .profile-stat {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .profile-stat-value {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333333;
+    margin: 0 0 10px;
+  }
+  .profile-stat-label {
+    font-size: 1em;
+    color: #666666;
+    text-transform: uppercase;
+  }
+
+  /* Add style for the basket button */
+  .favourite-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: #172B69;
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 20px 0;
+  }
+
+  
+  #favouriteIcon{
+    height: 35px;
+    height: 35px;
+  }

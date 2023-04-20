@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        /* Style pour l'icône de l'œil */
+.input-group-append .toggle-password {
+  cursor: pointer;
+}
+
+/* Style pour cacher le texte masqué */
+.input-group-append .toggle-password i.fa-eye-slash {
+  display: inline-block;
+}
+
+/* Style pour afficher le texte en clair */
+.input-group-append .toggle-password.active i.fa-eye {
+  display: inline-block;
+}
+
+/* Style pour aligner l'icône avec le champ de saisie */
+.input-group-append {
+  margin-left: -1px;
+}
+
+/* Style pour donner l'effet de focus sur le champ de saisie */
+.input-group .form-control:focus {
+  z-index: 2;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Style pour ajouter une bordure sur le champ de saisie lorsqu'une erreur est affichée */
+.form-control.is-invalid {
+  border-color: #dc3545;
+  padding-right: calc(1.5em + .75rem);
+  background-image: none;
+  background-position: right calc(.375em + .1875rem) center;
+  background-repeat: no-repeat;
+  background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+/* Style pour l'icône d'erreur */
+.form-control.is-invalid ~ .input-group-append .toggle-password i {
+  color: #dc3545;
+}
+
+/* Style pour l'icône d'œil en position ouverte */
+.form-control.is-invalid ~ .input-group-append .toggle-password.active i {
+  color: #dc3545;
+}
+    </style>
+    <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <div class="input-group">
+          <input type="password" class="form-control" id="password" name="password">
+          <div class="input-group-append">
+            <button type="button" class="btn btn-outline-secondary toggle-password" data-target="#password">
+              <i class="fa fa-eye-slash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="confirm_password">Confirmer mot de passe</label>
+        <div class="input-group">
+          <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+          <div class="input-group-append">
+            <button type="button" class="btn btn-outline-secondary toggle-password" data-target="#confirm_password">
+              <i class="fa fa-eye-slash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

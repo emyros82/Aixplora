@@ -1,0 +1,113 @@
+<!-- SHOW CARDS -->
+<?php foreach ($places as $place) : ?>
+      <div class='card'>
+        <div class='info'>
+          <h1 class='title'><?= $place['titlePlace']; ?> </h1>
+          <p class='description'><?= $place['abstractPlace']; ?></p>
+          <a class="showModal" href="#demo <?= buildURL('admin_oneCategory', ['idPlace' => $place['idPlace']]) ?>">Lire la suite</a>
+        </div>
+      </div>
+    <?php endforeach; ?>
+    
+    <!-- start html modal -->
+    <?php foreach ($places as $place) : ?>
+      <div id="my-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Fiche du lieu de visite : <?= $place['titlePlace']; ?></h2>
+          </div>
+          <div class="modal-body">
+
+
+            <!-- START ACCORDION HTML -->
+
+            <div class="place-grid">
+              <div class="place-item ">
+                <a class="place-title" href="#custom">Notice succincte</a>
+                <div class="place-content">
+                  <div class="place-content-inside">
+
+
+                    <p class="pAccordion"><?= $place['abstractPlace']; ?></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="place-item ">
+                <a class="place-title" href="#custom"> Historique et description </a>
+                <div class="place-content">
+                  <div class="place-content-inside">
+                    <p class="pAccordion"><?= $place['descriptionPlace']; ?></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="place-item ">
+                <a class="place-title" href="#custom">Coordonnées</a>
+                <div class="place-content">
+                  <div class="place-content-inside">
+                    <p class="pAccordion">Adresse: <?= $place['adressPlace']; ?></p>
+                    <p class="pAccordion">Latitude: <?= $place['latPlace']; ?></p>
+                    <p class="pAccordion">Longitude: <?= $place['longPlace']; ?></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="place-item ">
+                <a class="place-title" href="#custom">Images</a>
+                <div class="place-content">
+                  <div class="place-content-inside">
+
+
+                    <!-- HTML structure for the gallery -->
+                    <div class="gallery">
+                      <figure>
+                        <img src="image1.jpg" alt="Image 1">
+                        <figcaption>Caption for image 1</figcaption>
+                      </figure>
+                      <figure>
+                        <img src="image2.jpg" alt="Image 2">
+                        <figcaption>Caption for image 2</figcaption>
+                      </figure>
+                      <!-- Add more images here -->
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="place-item ">
+                <a class="place-title" href="#custom">En savoir plus</a>
+                <div class="place-content">
+                  <div class="place-content-inside">
+                    <p class="pAccordion">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mollis cursus malesuada. Proin aliquam dignissim nunc, ac hendrerit odio vestibulum nec. In semper id nulla ac vehicula. Suspendisse faucibus, libero sit amet aliquet auctor, orci dui euismod quam, vehicula elementum odio ligula eget turpis. Aliquam commodo condimentum magna at dapibus.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- END ACCORDION HTML -->
+          </div>
+          <div class="modal-footer">
+            <h1 id="h1FooterModal">Aixplora</h1>
+          </div>
+        </div>
+      </div>
+      <!-- end html modal -->
+    <?php endforeach; ?>
+    <!-- show places cards -->
+    <section class="cardsPlaces">
+
+    </section>
+
+  </section>
+
+
+  <!-- Fichiers Javascript -->
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+  <script type="text/javascript" src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js?v1.3.0"></script>
+  <script src="../../public/js/map.js"></script>
+  <script src="../../public/js/modal_map.js"></script>
+  <script src="../../public/js/accordion_map.js"></script>

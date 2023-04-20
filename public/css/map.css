@@ -1,0 +1,133 @@
+#map{
+    height: 700px;
+    width: 100%;
+    position: relative;/* ce qui permet de positionner les éléments enfants de manière absolue par rapport à ce parent */
+    z-index:0;
+    margin-top:45px;
+}
+@media (min-width: 680px){
+	#map{
+
+        margin-top:0px;
+    }
+}
+   
+/* miniSide */
+.miniSide{
+    position: absolute;
+    min-width: 300px;
+    min-height: 50px;
+    left: 0px;
+    margin-top: -800px;
+    background: #E8A93F;
+    box-shadow: 5px 4px 5px rgba(0, 0, 0, 0.4);
+    border-radius: 0px 10px 10px 0px;
+    z-index: 1;     
+}
+
+.iconeCatSide {
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+max-width: 25px;
+max-height: 40px; 
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+}
+
+div.leaflet-popup-content-wrapper{
+    width: 150px;
+    /* text-align: center */
+    overflow: hidden;
+}
+
+.popUpImage{
+    width: 100px;
+    height: 80px;
+
+}
+
+a.popUpText{
+    color:blue;
+    outline: none;
+    text-decoration: none;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: normal;
+    /* line-height : normal; */
+    
+}
+@media screen and (min-width: 736px) {
+    .popUpImage{
+        width: 150px;
+        height: 100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    div.leaflet-popup-content-wrapper{
+        width: 300px;
+      
+        text-align: justify;
+    }
+    a.popUpText{
+        font-size: 15px;
+    }
+}
+
+.iconCategoryNav {
+    height: 2em;
+    margin-top: -3em;
+    background-color: white;
+    border-radius: 40%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.iconCategoryNav:hover::after {
+    content: attr(title);
+    position: absolute;
+    background-color: blue;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    top: 0;
+    left: 110%;
+}
+
+#iconsContent {
+    text-align: center;
+}
+
+#header {
+    height: 6em;
+    overflow: hidden;
+}
+
+img#logoTexteAixplora {
+    height: 30px;
+    margin-top: 12px;
+    margin-left: 8px;
+}
+
+@media (min-width: 680px) {
+    #iconsContent {
+        text-align: center;
+        margin-top: -3.1em;
+    }
+
+    .iconCategoryNav {
+        margin-right: 2px;
+    }
+
+    #header {
+        height: 3em;
+    }
+}
+
+@media (min-width: 1720px) {
+    .iconCategoryNav {
+        margin-top: 5px;
+    }
+}

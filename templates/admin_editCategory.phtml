@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="public/css/thumbnails.css ">
+
+ 
+
+<section id="connexion">
+    <div class="screen-container">
+
+        <form id="addForm" method="POST" action="<?= buildUrl('admin_editCategory', ['idCategory' => $idCategory]); ?>" enctype="multipart/form-data">
+
+            <h3>Modifier un parcours</h3>
+
+            <div class="inputs">
+                <!-- champ NOM PARCOURS -->
+                <label for="titleCategory"></label>
+                <input type="text" id="titleCategory" name="titleCategory" value="<?= $titleCategory; ?>" placeholder="Nom du lieu" />
+                <!-- gestion erreur titleCategory -->
+                <?php if (isset($errors['titleCategory'])) : ?>
+                    <p class="error"><?= $errors['titleCategory']; ?></p>
+                <?php endif; ?>
+
+
+                <!-- champ DESCRIPTION PARCOURS -->
+                <label for="descriptionCategory"></label>
+                <textarea id="descriptionCategory" name="descriptionCategory" placeholder="Description">
+                    <?= $descriptionCategory; ?>
+                    </textarea>
+                <!-- gestion erreur descriptionPlace -->
+                <?php if (isset($errors['descriptionCategory'])) : ?>
+                    <p class="error"><?= $errors['descriptionCategory']; ?></p>
+                <?php endif; ?>
+
+                <!-- champ ACTIFCATEGORY -->
+
+                <label for="actifCategory" class="col-md-4 control-label"></label>
+                <!-- <div class="col-md-4 selectContainer"> -->
+                <!-- <div class="input-group"> -->
+                <select id="select1" id="actifCategory" name="actifCategory" class="form-control selectpicker">
+                    <option>Visible?</option>
+                    <option value="1">Oui</option>
+                    <option value="0">Non</option>
+                    <!-- gestion erreur Visible -->
+                    <?php if (isset($errors['actifCategory'])) : ?>
+                        <p class="error"><?= $errors['actifCategory']; ?></p>
+                    <?php endif; ?>
+                </select>
+
+                <!-- champ IMAGEPARCOURS -->
+                <label for="image-input4">Image du parcours</label>
+                <input type="file" id="image-input4" name="imageCategory">
+                <!-- gestion erreurs IMGCATEGORY-->
+                <?php if (isset($errors['imageCategory'])) : ?>
+                    <p class="error"><?= $errors['imageCategory'] ?></p>
+                <?php endif; ?>
+
+            </div>
+
+            <div class='miniaturesFiles'>
+                <div><img src="#" alt="" id="image-input4-preview" width="200"></div>
+            </div>
+            <div>
+                <input id="buttonAddPlaceForm" type="submit" value="Enregistrer">
+            </div>
+        </form>
+
+    </div>
+
+</section>
+
+<!-- ***************************    START  BUTTON CATEGORIES **************************-->
+<div style='text-align: center; margin-bottom: 10px'>
+        <button class="btnPlus" style="background-color:#e8a93f">
+            <a style="text-decoration:none" href=" <?= buildUrl('admin_categories'); ?>" class="infobulle" title="Allez au dashbord Parcours">
+                PARCOURS
+            </a>
+        </button>
+    </div>
+
+    <!-- ***************************     END  BUTTON CATEGORIES  **************************-->
+
+

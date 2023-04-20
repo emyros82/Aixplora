@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="public/css/backOffice_Home.css">
+
+    <div class="containerAdmin">
+        <div class="welcomeAdmin">
+            <h1 class="welcomeAixplora">Bienvenue <br> dans l'espace administrateur d'Aixplora</h1>
+        </div>
+        <section>
+            <p class='presentationBackoffice'>Bienvenue sur la page d'accueil du back-office administrateur du site
+                Aixplora.
+                Avant d’expliquer le fonctionnement de votre outil d’administration point par point, il est important de
+                préciser que, pour une question de sécurité, certaines actions sont réservées au dévéloppeur chargé de
+                la maintenance de votre site. Avant d'executer des actions, nous vous conseillons de prendre
+                connaissance de la notice rédigée pourvous accompagner dans la gestion du site Aixplora.
+                Toutes les actions faites sur votre backoffice seront visibles
+                instantanément sur votre galerie, tous les processus mis
+                en oeuvre seront enregistrés à chaque fois que vous devrez
+                valider une action. Veuillez télécharger le fichier pdf ci-dessous.
+            </p>
+
+            <button id="download-button"><a href='download.php?file=noticeAixplora.pdf' download>Notice Aixplora</a>
+            </button>
+        </section>
+
+
+        <div class="divButton">
+            <button class="admin-btn"><a href="<?= buildUrl('admin_categories'); ?>">Parcours</a></button>
+            <button class="admin-btn"><a href="<?= buildUrl('admin_places'); ?>">Lieux</a></button>
+
+        </div>
+    </div>
+

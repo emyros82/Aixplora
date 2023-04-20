@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>AIXPLORA</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../public/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../public/css/noscript.css" /></noscript>
+	</head>
+	<body class="landing is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<!-- <h1><a href="index.html">AIXPLORA</a></h1> -->
+						
+						<!-- **************************
+							            menu navbar 
+							************************-->
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="<?=buildUrl('home');?>">Home</a></li>
+											
+											<?php if (Session::isConnected() ): ?>
+											<li><a href="<?=buildUrl('profileUser');?>">Votre profil  <?= htmlspecialchars( Session::getUserFirstname() ); ?> <?= htmlspecialchars( Session::getUserLastname() ); ?></a></li>
+											<li><a href="<?=buildUrl('logout');?>">Se deconnecter</a></li>
+											<li><a href="<?=buildUrl('admin');?>">BackOffice Administrateur</a></li>
+											<?php else: ?>	
+											<li><a href="<?=buildUrl('signup');?>">Créer un compte</a></li>
+											<li><a href="<?=buildUrl('login');?>">Se connecter</a></li>
+											<?php endif; ?>
+											<?php if (Session::hasRole(ROLE_ADMIN)): ?>
+
+											<?php endif; ?>
+											<li><a href="<?=buildUrl('map');?>">Carte interactive</a></li>
+											<!-- <li><a href="elements.html">Elements</a></li> -->
+											<img class='logo' src="public/img/logoCezanneOcreJauneAixplora.png" alt="" >
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+						<!-- end menu navbar -->
+					</header>
+					<!-- end Header -->
+
+
+					
+
+
+        <main>
+        <?php include '../templates/' . $template . '.phtml'; ?>
+        </main>
+<!-- Footer -->
+    <footer id="footer">
+	<div class="inner">
+		<header>
+			<h2>Aixplora</h2>
+			<p>A la découverte de notre passé, notre présent et notre futur...</p>
+		</header>
+			<ul class="actions stacked">
+			<li><a href="#" class="button fit primary">Aixplorer</a></li>
+			</ul>
+	</div>
+			<ul class="icons">
+				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+			    <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Emanuela Rossetti 2022</li><li>Design: <a href="#">E2R</a></li>
+			</ul>
+    </footer>
+
+</div>
+
+		<!-- Scripts -->
+			<script src="../../public/js/jquery.min.js"></script>
+			<script src="../../public/js/jquery.scrollex.min.js"></script>
+			<script src="../../public/js/jquery.scrolly.min.js"></script>
+			<script src="../../public/js/browser.min.js"></script>
+			<script src="../../public/js/breakpoints.min.js"></script>
+			<script src="../../public/js/util.js"></script>
+			<script src="../../public/js/main.js"></script>
+
+	</body>
+</html>

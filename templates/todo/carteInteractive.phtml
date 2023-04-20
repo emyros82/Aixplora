@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+</head>
+
+<body>
+    <style>
+        #maCarte {
+            height: 400px;
+            width: 100%;
+            position: relative;
+            /* ce qui permet de positionner les éléments enfants de manière absolue par rapport à ce parent */
+            z-index: 0;
+        }
+
+
+        /* miniSide */
+        .miniSide {
+            position: absolute;
+            min-width: 40px;
+            min-height: 200px;
+            left: 0px;
+            margin-top: -300px;
+            background: #E8A93F;
+            box-shadow: 5px 4px 5px rgba(0, 0, 0, 0.4);
+            border-radius: 0px 10px 10px 0px;
+            z-index: 1;
+        }
+
+        img {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            max-width: 25px;
+            max-height: 40px;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        div.showCategory {
+            background-color: #E8A93F;
+            height: 40px;
+            padding: 0;
+        }
+
+        .category {
+            color: blueviolet;
+            margin-top: -2px;
+            text-align: left;
+            padding: 7px;
+            font-size: 25px;
+        }
+    </style>
+
+    <!-- div map     -->
+    <div id="maCarte"></div>
+    <!-- sidebar with icons categories -->
+    <div class="miniSide">
+        <a href="http://"><img src="img/fontaineIcone.png" alt="" srcset=""></a>
+        <a href=""><img src="img/incontournableIcone.png" alt="" srcset=""></a>
+        <a href="http://"><img src="img/insoliteIcone.png" alt="" srcset=""></a>
+        <a href=""><img src="img/museumIcone.png" alt="" srcset=""></a>
+    </div>
+
+    <!-- Fichiers Javascript -->
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <script type="text/javascript" src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js?v1.3.0"></script>
+    <script>
+
+        
+       
+        // On initialise la carte
+        let carte = L.map('maCarte').setView([43.529742, 5.447427], 13);
+
+        // On charge les "tuiles"
+        L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+            // Il est toujours bien de laisser le lien vers la source des données de toute facon openstreet 
+            //du moment que c est un service gratuit il demande dans tous les cas d afficher le copyrigth avec le lien internet
+            //par défaut le damier de la map de openstreet map est assez chargé d infos
+            //mais l on peut decider de changer de damier
+            //il faut chercher les tuiles d openstreetmap 
+            //un fois identifié le fournisseur de carte(damier) quel on souhaite, il faut en charger le script js
+            //le lien il faut le mettre apres le script dela librairie leaflet parce qu'il injecte une nouvelle classe
+            //dans l'objet L et si L n est pas chargé au préalable ca ne pourra pas marcher
+            //et avant notre même js
+            //Ensuit il faudra ahjouté au code map.addLayer(new L.StamenTileLayer('terrain'))
+            attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+            minZoom: 1,
+            maxZoom: 20
+        }).addTo(carte);
+
+        var marqueurs = L.markerClusterGroup();
+
+        // On personnalise le marqueur
+        var icone = L.icon({
+            iconUrl: "../public/img/markers/museeMarker.png",
+            iconSize: [40, 60],
+            iconAnchor: [25, 50],
+            popupAnchor: [0, -50]
+        })
+
+        // console.log(icone);
+ let mapDatas = <?php echo $mapDatas; ?>;
+        let xmlhttp = new XMLHttpRequest();
+        console.log(mapDatas);
+
+        xmlhttp.onreadystatechange = () => {
+            try {
+                let data = JSON.parse(mapDatas);
+                console.log(data);
+
+                Object.entries(data.places).forEach(place => {
+                    console.log('coucou');
+                    let marker = L.marker([place[1].latPlace, place[1].longPlace], {icon: icone});
+                    // .addTo(carte)
+                    marker.bindPopup('<h2><a href="http://">' + place[1].titlePlace + '</a></h2>');
+                    marqueurs.addLayer(marker); 
+                });
+            } catch (error) {
+                console.error(error);
+                // You could display an error message to the user here
+            }
+        };
+
+
+
+
+
+
+
+
+        // $.ajax({
+        // 					type: "POST", 
+        // 					url: 'carteInteractive.php',
+        // 				   // data: form_data,
+        // 					success: function(data)
+        // 					{
+
+        // 				   // var json_obj = $.parseJSON(data);//parse JSON
+        // 						var json_obj = jQuery.parseJSON(JSON.stringify(data));
+        // 						for (var i in json_obj) 
+        // 						{	addMarker(json_obj[i].u_lat, json_obj[i].u_lon,"Longitude:" + json_obj[i].u_lon + "<br>" + json_obj[i].u_email + "<br>" + json_obj[i].u_name);
+
+        // 						}
+        // 					},
+        // 					dataType: "json"//set to JSON    
+        // 				})    
+
+
+
+
+
+        //     let xmlhttp = new XMLHttpRequest();
+        //     // var url = "https://localhost/ProjetAixplora/AixploraGit/Aixplora/Controller/carteInteractive.php";
+
+        //     //il faut géerer les retours après le send (dans le code est mis souvant plus en haut que le send qui est tout en bas)
+        //     // on fait une fontion flechée
+        //     xmlhttp.onreadystatechange = () => {
+        //         // La transaction est terminée ? 
+        //         //== 4 correspond aux 4 étapes , readyState prend les étapes 0 1 2 3 4 pour la mise en oeuvre de notre correction 
+        //         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        //             // Si la transaction est un succès
+        //             console.log('coucou');
+        //             console.warn(xmlhttp.responseText);
+        //             //console.log pour voir si on a bien recu les données de la base de données en JSON
+        //             // console.log(xmlhttp.responseText);
+        //             // On traite les données reçues
+        //             let data  = JSON.parse(xmlhttp.responseText);
+
+        //             console.table(data);
+        //             // On boucle sur les données (ES8)
+        //             //pour boucler sur  un objet qui vient d un JSON on peut utiliser Object.entries
+        //             //pour acceder à la parties sites de mes données et le foreach avec une fonction flechée
+        //             Object.entries(data.places).forEach(place => {
+        //                 // Ici j'ai un seul site
+        //                 console.log(place);
+        //                 // On crée un marqueur pour le site, on me [1] pour acceder à l'objet site
+        //                 //pour mieu comprendre voir sur leconsole log  console.log(site);
+        //                 //on fait appel a L.marker et on lui passe un tableau 
+        //                 let marker = L.marker([place[1].latPlace, place[1].lonPlace]).addTo(carte)
+        //                 marker.bindPopup('<h2><a href="http://">' + place[1].titlePlace + '</a></h2>')
+        //             })
+        //         } else {
+        //             // statusText nous donne le code d erreur
+        //             console.log(xmlhttp.statusText);
+        //         }
+        //     }
+
+        //     xmlhttp.open("GET", 'http://localhost/ProjetAixplora/AixploraGit/Aixplora/index.php?page=carteInteractive');
+        //     xmlhttp.send(null);
+        // 
+    </script>
+</body>
+
+</html>

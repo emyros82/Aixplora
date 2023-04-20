@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="public/css/accordion.css">
+
+
+
+
+<div class="place-grid" style="min-height: 55vh">
+    <div>
+        <!-- nom de la category -->
+        <h1><?= $category['titleCategory']; ?></h1>
+    </div>
+    <div class="displayTable">
+
+        <div class="place-item ">
+            <a class="place-title" href="#custom">Description</a>
+            <div class="place-content">
+                <div class="place-content-inside">
+                    <p class="pAccordion"><?= $category['descriptionCategory']; ?></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="place-item ">
+            <a class="place-title" href="#custom">Image</a>
+            <div class="place-content">
+                <div class="place-content-inside">
+
+                    <div class="gallery">
+                        <figure>
+                            <img src="<?php echo 'public/img/categoryimages/' . $category['imgCategory']; ?>"
+                                 alt="<?= $category['titleCategory']; ?>">
+                            <figcaption><?= $category['titleCategory']; ?></figcaption>
+                        </figure>
+                        <!--                            <figure>-->
+                        <!--                                <img src="-->
+                        <?php //echo 'public/img/iconeCategory/' . $category['markerCategory']; ?><!--" alt="-->
+                        <?php //= $category['titleCategory']; ?><!--">-->
+                        <!--                                <figcaption>-->
+                        <?php //= $category['titleCategory']; ?><!--</figcaption>-->
+                        <!--                            </figure>-->
+                        <figure>
+                            <img src="<?php echo 'public/img/iconeCategory/' . $category['iconeCategory']; ?>"
+                                 alt="<?= $category['titleCategory']; ?>">
+                            <figcaption><?= $category['titleCategory']; ?></figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<?php if (Session::hasRole(ROLE_ADMIN)) : ?>
+    <!-- ***************************    START  BUTTON CATEGORIES **************************-->
+    <div style='text-align: center; margin-bottom: 10px'>
+        <button class="btnPlus" style="background-color:#e8a93f">
+            <a style="text-decoration:none" href=" <?= buildUrl('admin_categories'); ?>" class="infobulle" title="Allez au dashbord Parcours">
+                PARCOURS
+            </a>
+        </button>
+    </div>
+
+    <!-- ***************************     END  BUTTON CATEGORIES  **************************-->
+<?php endif; ?>
+
+<script src="public/js/accordion_map.js"></script>

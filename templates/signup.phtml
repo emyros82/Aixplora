@@ -1,0 +1,70 @@
+    <section id="connexion">
+        <div class="screen-container">
+           
+            <form action="<?= buildUrl('signup') ?>" method="POST">
+
+                <h3>Créer un compte</h3>
+
+                <p class="signUp">J'ai déjà un <span>compte</span>. Je me <span>connecte</span> <a href="<?= buildUrl('login'); ?>">ici</a> </p>
+
+                <div class="inputs">
+                    <!-- CHAMP PRENOM -->
+                    <label for="firstnameUser"></label>
+                    <input type="text" id="firstnameUser" name="firstnameUser" placeholder="Prénom" />
+                    <!-- gestion erreurs champ prénom -->
+                    <?php if (isset($errors['firstnameUser'])) : ?>
+                        <p class="error"><?= htmlspecialchars($errors['firstnameUser']) ?></p>
+                    <?php endif; ?>
+
+                    <!-- CHAMP NOM -->
+                    <label for=" lastnameUser"></label>
+                    <input type="text" id="lastnameUser" name="lastnameUser" placeholder="Nom de Famille" />
+                    <!-- gestion erreurs champ nom -->
+                    <?php if (isset($errors['lastnameUser'])) : ?>
+                        <p class="error"><?= htmlspecialchars($errors['lastnameUser']) ?></p>
+                    <?php endif; ?>
+
+                    <!-- CHAMP ADRESSE MAIL-->
+                    <label for="emailUser"></label>
+                    <input type="email" id="emailUser" name="emailUser" placeholder="Adresse mail" />
+                    <!-- gestion erreurs champ mail-->
+                    <?php if (isset($errors['emailUser'])) : ?>
+                        <p class="error"><?= htmlspecialchars($errors['emailUser']) ?></p>
+                    <?php endif; ?>
+
+                    <!-- CHAMP MDP-->
+                    <div class="show_PasswordUser" style="position:relative">
+                        <label for="passwordUser"></label>
+                        <input type="password" id="passwordUser" name="passwordUser" placeholder="Mot de passe" style="width:100%; margin:0; padding: 10px" />
+                        <div class="password-icon">
+                            <i id="show" class="far fa-eye eyeIcon eyeOpen"></i>
+                            <i id="hide" class="far fa-eye-slash eyeIcon eyeClose"></i>
+                        </div>
+                    </div>
+
+                    <!-- gestion erreurs champ mdp-->
+                    <?php if (isset($errors['passwordUser'])) : ?>
+                        <p class="error errorMdp"><?= htmlspecialchars($errors['passwordUser']) ?></p>
+                    <?php endif; ?>
+
+                    <!-- CHAMP CONFIRMATION MDP-->
+                    <div class="show_confirmPasswordUser" style="position:relative; margin-top:15px;">
+                        <label for="confirmPasswordUser"></label>
+                        <input type="password" id="confirmPasswordUser" name="confirmPasswordUser" placeholder="Confirmer le mdp" style="width:100%; margin:0" />
+                    </div>
+
+                    <!-- gestion erreurs champ confirmation mdp-->
+                    <?php if (isset($errors['confirmPasswordUser'])) : ?>
+                        <p class="error errorMdp"><?= htmlspecialchars($errors['confirmPasswordUser']) ?></p>
+                    <?php endif; ?>
+                </div>
+
+                <div style="text-align:center">
+                    <input class="button " type="submit" value="S'enregistrer">
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>

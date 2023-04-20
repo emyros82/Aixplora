@@ -1,0 +1,78 @@
+<section id="banner">
+    <div class="inner logoInner">
+        <h1 id="aixploraH1">Aixplora</h1>
+        <h2 id="aixploraH2"> à la découverte du patrimoine culturel de la ville d'Aix-en-Provence</h2>
+        <ul class="actions special">
+            <img class='logoButtonAixplora' src="public/img/logos/logoCezanne_blue.png" alt="">
+        </ul>
+    </div>
+</section>
+
+<section id="one" class="wrapper style1 special">
+    <div class="inner">
+        <header class="major">
+            <h2>A la découverte d'Aixplora</h2>
+            <p>Aixplora est une application destinée à tous ceux qui ont l'envie d’explorer le patrimoine culturel de
+                l'acienne Aquae Sextius, aujourd'hui Aix-en-Provence. Promenez-vous dans les petites ruelles,
+                arrêtez-vous près d'une fontaine, asseyez-vous sur le banc d'une place tout en découvrant, grâce à une
+                carte interactive, l'histoire de cette ville. Laissez-vous guider par les parcours Aixplora!</p>
+        </header>
+    </div>
+</section>
+
+<section id="two" class="wrapper alt style2">
+    <?php foreach ($categories as $category) : ?>
+        <section class="spotlight">
+            <div class="image"><img class="imgCategory" src="public/img/categoryimages/<?= htmlspecialchars($category['imgCategory']); ?>" alt="image du parcours <?= $category['titleCategory']; ?>" /></div>
+            <div class="content">
+                <div class="iconeCartegory"><img class="rotate" id='iconeCartegory' src="public/img/iconeCategory/<?= htmlspecialchars($category['iconeCategory']); ?>" alt="<?= htmlspecialchars($category['titleCategory']); ?>" srcset=""></div>
+                <a href="<?= buildUrl('map'); ?>" rel="noopener noreferrer">
+                    <h2><?= htmlspecialchars($category['titleCategory']); ?> </h2>
+                </a>
+                <p><?= htmlspecialchars($category['descriptionCategory']); ?></p>
+            </div>
+        </section>
+    <?php endforeach; ?>
+</section>
+
+<section id="three" class="wrapper style3 special">
+    <div class="inner">
+        <header class="major">
+            <h2>Comment utiliser Aixplora </h2>
+            <p>La navigation d'Aixplora est simple intuitive. De quoi vous avez besoin pour cet adventure? </p>
+        </header>
+        <ul class="features">
+            <!-- <li class="icon fa-paper-plane"> -->
+            <li class="icon fa-map element">
+                <!-- <i class="fa-flag"></i> -->
+                <h3>Carte interactive</h3>
+                <p>Que vous soyez chez vous en face de votre ordinateur, en voyage d'un train en préparant votre séjour
+                    lisant les information sur une tablette ou que vous soyez en train de marcher dans les rue
+                    d'Aix-en-Provence avec votre smartphone à la main, le site Aixplora vous propose, sans
+                    obligatoirement la création d'un compte, de localiser les patrimoine de la ville d'Aix. Vous aurez
+                    aussi la possibilité de localiser vous même sur la carte et réperer les sites les plus proches. </p>
+            </li>
+            <li class="icon solid fa-user element ">
+                <h3>Créer un compte</h3>
+                <p>Comme il a été déjà dit, vous pouvez utiliser Aixplora sans créer un compte. Alors pourquoi le faire?
+                    Premièrement, c'est gratuit, et vous pourrez créer vos parcours personalisés. Toutes les étapes de
+                    création sont simple et intuitives. Pas de panique, il ne faut pas être un développeur web, nous
+                    avons fait le travail pour vous!</p>
+            </li>
+            <li class="icon solid fa-code element">
+                <h3>Des nouveaux contenus</h3>
+                <p>Le site Aixplora est dynamique, des nouveau parcours seront proposés au fil du temps en s'adaptant à
+                    l'offerte culturelle de la ville d'Aix-en-Provence. Le seul moyen pour vous permettra d'être
+                    toujours à connaissances des nouveautés.</p>
+            </li>
+
+            <li class="icon fa-heart element ">
+                <h3>Aix-en-Provence mon amour</h3>
+                <p>Aixplora vous apprendra à aimer encore plus cette ville riche d'histoire et évènements culturels. Il
+                    suffira un bonne connexion internet et votre support numérique preferé pour lire, découvrir,
+                    explorer et admirer... Etes-vous prêts?</p>
+            </li>
+
+        </ul>
+    </div>
+</section>
